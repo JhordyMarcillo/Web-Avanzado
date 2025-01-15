@@ -1,0 +1,60 @@
+
+<h1 style="text-align: center;">
+  Bienvenido a {{title}} 
+</h1>
+<!-- Ejercicio 1
+<div>
+  <p> Nombre del empleado: {{nombre}}</p>
+  <p> Edad del empleado: {{edad}}</p>
+  <p> Correo del empleado: {{email}}</p>
+  <p> Los ultimos sueldos del mes son: {{sueldos[0]}}, {{sueldos[1]}}, {{sueldos[2]}}</p>
+  <p> Los ultimos 3 meses ha generado: {{ultimosSueldos()}}</p>
+  <p> El estado del empleado es: {{esActivo()}}</p>
+</div>
+-->
+
+<!--Permite que las rutas configuradas en el proyecto para que se carguen de forma automatica-->
+
+<div>
+  <h1>Articulos de compra</h1>
+
+  <p> Nombre del empleado: {{nombre}}</p>
+  <p> Edad del empleado: {{edad}}</p>
+
+  @if(edad > 18){
+    <p> Es mayor de edad</p>
+  } @else {
+    <p>Es menor de edad</p>
+  }
+ <hr>
+ <!--Mostrar articulos-->
+  <h2> Listado de articulos</h2>
+  <table>
+    @for(articulo of articulos; track articulo.codigo){
+      <tr>
+        <td>{{articulo.codigo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio}}</td>
+      </tr>
+    }
+  </table>
+
+
+
+<!--Numero aleatorio-->
+  <h2> El numero randomico es:</h2>
+  @switch(generarAleatorio()) {
+    @case(1){
+      <p>Uno</p>
+    }
+    @case(2){
+      <p>Dos</p>
+    }
+    @case(3){
+      <p>Tres</p>
+    }
+  }
+
+</div>
+<router-outlet>
+<router-outlet/>

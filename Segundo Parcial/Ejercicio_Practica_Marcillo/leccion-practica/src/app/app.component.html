@@ -1,0 +1,63 @@
+<h1>{{ title }}</h1>
+
+<form [formGroup]="formularioCliente" (ngSubmit)="submit()">
+  <div>
+    <label>Nombre:</label>
+    <input formControlName="nombre" />
+    <span *ngIf="formularioCliente.get('nombre')?.invalid && formularioCliente.get('nombre')?.touched">
+      El nombre es obligatorio y debe tener al menos 4 caracteres.
+    </span>
+  </div>
+  <div>
+    <label>Cédula:</label>
+    <input formControlName="cedula" />
+    <span *ngIf="formularioCliente.get('cedula')?.invalid && formularioCliente.get('cedula')?.touched">
+      La cédula es obligatoria y debe tener 10 caracteres.
+    </span>
+  </div>
+  <div>
+    <label>Dirección:</label>
+    <input formControlName="direccion" />
+    <span *ngIf="formularioCliente.get('direccion')?.invalid && formularioCliente.get('direccion')?.touched">
+      La dirección es obligatoria.
+    </span>
+  </div>
+  <div>
+    <label>Grupo:</label>
+      <select formControlName="grupo">
+        <option value="Grupo 1 ">Grupo 1</option>
+        <option value="Grupo 2">Grupo 2</option>
+      </select>
+    
+    <span *ngIf="formularioCliente.get('grupo')?.invalid && formularioCliente.get('grupo')?.touched">
+      El grupo es obligatorio.
+    </span>
+  </div>
+  <button type="submit">{{ clienteSeleccionado ? 'Actualizar Cliente' : 'Agregar Cliente' }}</button>
+  <button type="button" (click)="resetForm()">Limpiar</button>
+</form>
+
+<h2>Lista de Clientes</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cédula</th>
+      <th>Dirección</th>
+      <th>Grupo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of listaClientes">
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.cedula }}</td>
+      <td>{{ cliente.direccion }}</td>
+      <td>{{ cliente.grupo }}</td>
+      <td>
+        <button (click)="editarCliente(cliente)">Editar</button>
+        <button (click)="eliminarCliente(cliente.cedula)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

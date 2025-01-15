@@ -1,0 +1,17 @@
+
+<div style="text-align: center;">
+  <h1>Operaciones</h1>
+  Ingrese numero 1: <input type="number" [(ngModel)]="numero1" placeholder="ingrese numero 1">
+<p></p>
+  Ingrese numero 2: <input type="number" [(ngModel)]="numero2" placeholder="ingrese numero 2">
+  <p></p>
+  <button (click)="limpiarPadre()">Limpiar Padre</button>
+
+  <app-operaciones
+    [numero1] = "numero1"
+    [numero2] = "numero2"
+    (resultadoEvento)="actualizarResultado($event)">
+  </app-operaciones>
+
+  <p>Resultado componente del padre : {{ resultadoPadre }}</p>
+</div>

@@ -1,0 +1,18 @@
+<div style="text-align: center; margin-top: 50px;">
+  <h1> Ejemplo de enlace de propiedades </h1>
+  
+  <!--Mostrar nombre de forma dinamica-->
+  <p> Nombre actual: {{nombre}} </p>
+
+  <!--Botones-->
+  <button (click)="fijarNombre1()">Fijar nombre a Juan</button>
+  <button (click)="fijarNombre2()">Fijar nombre a Pedro</button>
+
+  <!--Enlace de propiedades de un input-->
+  <input [value] = "nombre" placeholder="Escribe el nombre">
+  
+  <!--cambiar de forma dinamica-->
+  <button [title] = "nombre || 'Sin nombre definido'">Pasar el cursor</button>
+</div>
+
+<router-outlet />
