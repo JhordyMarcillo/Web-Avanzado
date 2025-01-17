@@ -1,0 +1,24 @@
+/* producto.component.css */
+.producto-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .producto-card h3 {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .producto-card p {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .producto-card strong {
+    color: #000;
+    font-size: 1.2em;
+  }
+  

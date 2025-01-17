@@ -1,0 +1,12 @@
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    text-align: left;
+  }
+  
+  .product-card h3 {
+    margin-top: 0;
+  }
+  
