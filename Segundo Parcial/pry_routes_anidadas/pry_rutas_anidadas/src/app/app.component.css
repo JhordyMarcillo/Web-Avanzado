@@ -1,0 +1,45 @@
+/* Estilo para el contenedor del menú */
+.Menu {
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #F5F5F5; /* Fondo gris claro */
+    border: 1px solid #D3D3D3; /* Borde gris neutro */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilo para los enlaces del menú */
+.Menu a {
+    text-decoration: none; /* Sin subrayado */
+    font-family: Arial, sans-serif; /* Fuente neutra */
+    font-size: 1.2em;
+    color: #333333; /* Gris oscuro */
+    margin: 0 15px; /* Espaciado entre enlaces */
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Sin borde por defecto */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Animación suave */
+}
+
+/* Estilo al pasar el mouse por encima de los enlaces */
+.Menu a:hover {
+    background-color: #E0E0E0; /* Fondo gris más oscuro */
+    color: #000000; /* Texto negro */
+    border-color: #B0B0B0; /* Borde gris más marcado */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+}
+
+/* Estilo para el área del router outlet */
+router-outlet {
+    display: block;
+    margin: 20px auto;
+    width: 80%; /* Ancho de contenido */
+    min-height: 200px;
+    padding: 20px;
+    background-color: #FAFAFA; 
+    border: 1px solid #CCCCCC; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}

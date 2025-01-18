@@ -1,0 +1,65 @@
+<h2>Registro de Zapatos</h2>
+
+<form [formGroup]="formularioZapato" (ngSubmit)="registrarZapato()">
+  <div>
+    <label>Nombre:</label>
+    <input type="text" formControlName="nombre" />
+    <span *ngIf="formularioZapato.get('nombre')?.invalid && formularioZapato.get('nombre')?.touched">
+      El nombre es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label>Colores:</label>
+    <div *ngFor="let color of colores">
+      <label>
+        <input type="checkbox" [value]="color" (change)="toggleColor(color)" /> {{ color }}
+      </label>
+    </div>
+    <span *ngIf="!colorSeleccionado && formularioZapato.get('colores')?.touched">
+      Debes seleccionar al menos un color.
+    </span>
+  </div>
+
+  <div>
+    <label>Talla:</label>
+    <select formControlName="talla">
+      <option value="" disabled>Seleccione una talla</option>
+      <option *ngFor="let talla of tallas" [value]="talla">{{ talla }}</option>
+    </select>
+    <span *ngIf="formularioZapato.get('talla')?.invalid && formularioZapato.get('talla')?.touched">
+      Debes seleccionar una talla.
+    </span>
+  </div>
+
+  <div>
+    <label>Precio:</label>
+    <input type="number" formControlName="precio" />
+    <span *ngIf="formularioZapato.get('precio')?.invalid && formularioZapato.get('precio')?.touched">
+      El precio debe ser mayor a 0.
+    </span>
+  </div>
+
+  <button type="submit" [disabled]="formularioZapato.invalid">Registrar Zapato</button>
+</form>
+
+<!-- Tabla para mostrar zapatos registrados -->
+<h2>Zapatos Registrados</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Colores</th>
+      <th>Talla</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let zapato of zapatosRegistrados">
+      <td>{{ zapato.nombre }}</td>
+      <td>{{ zapato.colores.join(', ') }}</td>
+      <td>{{ zapato.talla }}</td>
+      <td>{{ zapato.precio | currency }}</td>
+    </tr>
+  </tbody>
+</table>

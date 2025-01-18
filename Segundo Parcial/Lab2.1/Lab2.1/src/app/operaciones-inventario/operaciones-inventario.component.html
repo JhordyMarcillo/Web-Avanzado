@@ -1,0 +1,62 @@
+<h2>Control de Entrada y Salida de Productos</h2>
+
+<form [formGroup]="formularioOperacion" (ngSubmit)="realizarOperacion()">
+  <div>
+    <label>Producto:</label>
+    <select formControlName="productoId">
+      <option *ngFor="let zapato of listaInventario" [value]="zapato.id">
+        {{ zapato.nombre }} (Stock: {{ zapato.stockInicial }})
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>Tipo de Operación:</label>
+    <label>
+      <input type="radio" formControlName="tipoOperacion" value="entrada" /> Entrada
+    </label>
+    <label>
+      <input type="radio" formControlName="tipoOperacion" value="salida" /> Salida
+    </label>
+  </div>
+
+  <div>
+    <label>Cantidad:</label>
+    <input type="number" formControlName="cantidad" />
+    <span *ngIf="formularioOperacion.get('cantidad')?.invalid && formularioOperacion.get('cantidad')?.touched">
+      La cantidad debe ser positiva.
+    </span>
+  </div>
+
+  <div>
+    <label>Fecha de Operación:</label>
+    <input type="date" formControlName="fecha" />
+  </div>
+
+  <button type="submit">Registrar Operación</button>
+</form>
+
+<table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Color</th>
+        <th>Talla</th>
+        <th>Marca</th>
+        <th>Precio Unitario</th>
+        <th>Stock Inicial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let zapato of listaInventario">
+        <td>{{ zapato.id }}</td>
+        <td>{{ zapato.nombre }}</td>
+        <td>{{ zapato.color }}</td>
+        <td>{{ zapato.talla }}</td>
+        <td>{{ zapato.marca }}</td>
+        <td>{{ zapato.precioUnitario }}</td>
+        <td>{{ zapato.stockInicial }}</td>
+      </tr>
+    </tbody>
+  </table>

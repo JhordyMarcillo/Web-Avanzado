@@ -1,0 +1,29 @@
+.Menu {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff; 
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .Menu a {
+    text-decoration: none; 
+    color: white; 
+    margin: 0 15px; 
+    padding: 10px 20px; 
+    background-color: #87aed8; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .Menu a:hover {
+    background-color: #0a53a8;
+  }
+  
+  router-outlet {
+    display: block;
+    margin: 20px auto; 
+    width: 90%; 
+    max-width: 1200px; 
+  }
+  

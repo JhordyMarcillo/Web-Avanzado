@@ -1,0 +1,22 @@
+<form [formGroup]="formularioContacto"  (ngSubmit)="submit()">
+
+    <p> Nombre:
+        <input type="text" formControlName="nombre">
+    </p>
+
+    <p> Email:
+        <input type="text" formControlName="email">
+    </p>
+
+    <p> Mensaje:
+        <textarea rows="12" cols="50" formControlName="mensaje">
+        </textarea>
+    </p>
+
+    <button (onClick) = "submit()"></button>
+</form>
+
+<div>
+    {{datos}}
+
+</div>

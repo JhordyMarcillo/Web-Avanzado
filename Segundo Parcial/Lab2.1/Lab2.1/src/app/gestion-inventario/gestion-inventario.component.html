@@ -1,0 +1,96 @@
+<h1>{{ title }}</h1>
+
+<form [formGroup]="formularioZapato" (ngSubmit)="submit()">
+
+  <div>
+    <label>Id:</label>
+    <input type="number" formControlName="id" />
+    <span *ngIf="formularioZapato.get('id')?.invalid && formularioZapato.get('id')?.touched">
+      El id es obligatorio y debe tener al menos 2 caracteres.
+    </span>
+
+
+  </div>
+
+  <div>
+    <label>Nombre:</label>
+    <input formControlName="nombre" />
+    <span *ngIf="formularioZapato.get('nombre')?.invalid && formularioZapato.get('nombre')?.touched">
+      El Nombre es obligatorio y debe tener al menos 4 caracteres.
+    </span>
+  </div>
+
+  <div>
+    <label>Color:</label>
+    <input formControlName="color" />
+    <span *ngIf="formularioZapato.get('color')?.invalid && formularioZapato.get('color')?.touched">
+      El color debe de ser obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label>Talla:</label>
+    <input type="number" formControlName="talla" />
+    <span *ngIf="formularioZapato.get('talla')?.invalid && formularioZapato.get('talla')?.touched">
+      La Talla es obligatoria.
+    </span>
+  </div>
+
+  <div>
+    <label>Marca:</label>
+    <input formControlName="marca" />
+    <span *ngIf="formularioZapato.get('marca')?.invalid && formularioZapato.get('marca')?.touched">
+      La Marca es obligatoria.
+    </span>
+  </div>
+  
+  <div>
+    <label>Precio Unitario:</label>
+    <input formControlName="precioUnitario" type="number" />
+    <span *ngIf="formularioZapato.get('precioUnitario')?.invalid && formularioZapato.get('precioUnitario')?.touched">
+      El precio es obligatorio.
+    </span>
+  </div>
+
+  <div>
+    <label>Stock:</label>
+    <input type="number" formControlName="stockInicial" />
+    <span *ngIf="formularioZapato.get('stockInicial')?.invalid && formularioZapato.get('stockInicial')?.touched">
+      El stock debe de ser igual o mayor a 0.
+    </span>
+  </div>
+
+  <button type="submit">{{ seleccionado ? 'Actualizar Zapato' : 'Agregar Zapato' }}</button>
+  <button type="button" id="clickLimpiar" (click)="resetForm()">Limpiar</button>
+</form>
+
+<h2>Lista de Clientes</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Color</th>
+      <th>Talla</th>
+      <th>Marca</th>
+      <th>Precio Unitario</th>
+      <th>Stock Inicial</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let zapato of listaInventario">
+      <td>{{ zapato.id }}</td>
+      <td>{{ zapato.nombre }}</td>
+      <td>{{ zapato.color }}</td>
+      <td>{{ zapato.talla }}</td>
+      <td>{{ zapato.marca }}</td>
+      <td>{{ zapato.precioUnitario }}</td>
+      <td>{{ zapato.stockInicial }}</td>
+      <td>
+        <button (click)="editarCliente(zapato)">Editar</button>
+        <button id="clickEliminar" (click)="eliminarCliente(zapato.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

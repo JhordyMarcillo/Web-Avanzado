@@ -1,0 +1,49 @@
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    font-family: Arial, sans-serif;
+  }
+  
+  form p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  form input[type="text"],
+  form textarea {
+    width: calc(100% - 20px); 
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical; 
+  }
+  
+  form input[type="text"]:focus,
+  form textarea:focus {
+    border-color: #007bff; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+  }
+  
+  /* Estilo para el contenedor de datos */
+  div {
+    max-width: 600px; 
+    margin: 20px auto; 
+    padding: 15px;
+    background-color: #e9ecef; 
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333; 
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
