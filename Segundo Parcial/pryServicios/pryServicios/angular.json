@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pry_rutas_anidadas": {
+    "pryServicios": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pry_rutas_anidadas",
+            "outputPath": "dist/pry-servicios",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,17 +27,9 @@
               }
             ],
             "styles": [
-                "src/styles.css",
-                "node_modules/bootstrap/dist/css/bootstrap.min.css"
-              ],
-              "scripts": [
-                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-              ],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+              "src/styles.css"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -67,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pry_rutas_anidadas:build:production"
+              "buildTarget": "pryServicios:build:production"
             },
             "development": {
-              "buildTarget": "pry_rutas_anidadas:build:development"
+              "buildTarget": "pryServicios:build:development"
             }
           },
           "defaultConfiguration": "development"

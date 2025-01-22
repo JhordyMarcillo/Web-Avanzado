@@ -27,4 +27,7 @@ h2 {
     transition: all 0.3s ease; 
 }
 
+.menu a:hover{
+    background: linear-gradient(to bottom, #FFD700, #FFC080);
+}
 

@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <td>Codigo de producto</td>
+    <td>Nombre de producto</td>
+    <td>Precio de producto</td>
+  </tr>
+  @for (producto of productos; track $index){
+    
+    <tr>
+      <td>{{producto.codigo}}</td>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.precio}}</td>
+    </tr>
+  }
+</table>
