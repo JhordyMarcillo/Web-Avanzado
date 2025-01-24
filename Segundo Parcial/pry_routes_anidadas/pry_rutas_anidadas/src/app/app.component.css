@@ -1,32 +1,30 @@
-/* Estilo para el contenedor del menú */
+
 .Menu {
     display: flex;
-    justify-content: center; /* Centra los enlaces horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    align-items: center; 
     margin-top: 20px;
     padding: 10px 0;
-    background-color: #F5F5F5; /* Fondo gris claro */
-    border: 1px solid #D3D3D3; /* Borde gris neutro */
+    background-color: #F5F5F5; 
+    border: 1px solid #D3D3D3; 
     border-radius: 8px; 
 }
 
-/* Estilo para los enlaces del menú */
 .Menu a {
-    text-decoration: none; /* Sin subrayado */
-    font-family: Arial, sans-serif; /* Fuente neutra */
+    text-decoration: none;
+    font-family: Arial, sans-serif; 
     font-size: 1.2em;
-    color: #333333; /* Gris oscuro */
-    margin: 0 15px; /* Espaciado entre enlaces */
+    color: #333333;
+    margin: 0 15px;
     padding: 10px 20px;
-    border: 2px solid transparent; /* Sin borde por defecto */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: all 0.3s ease; /* Animación suave */
+    border: 2px solid transparent; 
+    border-radius: 5px; 
+    transition: all 0.3s ease; 
 }
 
-/* Estilo al pasar el mouse por encima de los enlaces */
 .Menu a:hover {
-    background-color: #E0E0E0; /* Fondo gris más oscuro */
-    color: #000000; /* Texto negro */
-    border-color: #B0B0B0; /* Borde gris más marcado */
-    transform: scale(1.05); /* Ligero aumento de tamaño */
+    background-color: #E0E0E0; 
+    color: #000000; 
+    border-color: #B0B0B0; 
+    transform: scale(1.05);
 }

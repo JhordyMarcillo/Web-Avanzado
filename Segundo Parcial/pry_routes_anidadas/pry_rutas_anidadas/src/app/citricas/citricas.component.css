@@ -1,38 +1,36 @@
-/* General para el título */
+
 h2 {
     text-align: center;
-    color: #4CAF50; /* Usando el verde para el título */
+    color: #4CAF50; 
     font-family: Arial, sans-serif;
     margin-bottom: 20px;
-    font-size: 2rem; /* Aumentar tamaño del título */
+    font-size: 2rem; 
 }
 
-/* Estilo de los elementos del menú */
 .menu {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Aumentar el espacio entre los elementos */
+    gap: 40px;
     flex-wrap: wrap;
     margin-top: 30px;
     color: #86d589;
 }
 
-/* Estilo de cada enlace del menú */
 .menu a {
     display: block;
     text-align: center;
-    width: 33.3%; /* Aumentar ancho de los elementos */
+    width: 33.3%;
     height: 600px;
-    border: 3px solid #4CAF50; /* Borde verde más grueso */
+    border: 3px solid #4CAF50; 
     border-radius: 10px;
     color: #86d589;
     padding: 15px;
-    text-decoration: none; /* Eliminar subrayado */
-    color: #333; /* Color de texto */
-    background-color: #f9f9f9; /* Fondo claro */
+    text-decoration: none; 
+    color: #333; 
+    background-color: #f9f9f9; 
 }
 
-/* Efecto al pasar el ratón por encima */
+
 .menu a:hover {
      background-color: #4CAF50;
 }
@@ -44,11 +42,10 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Estilo para los textos de cada enlace */
 .menu a p {
-    font-size: 1.2rem; /* Aumentar el tamaño del texto */
+    font-size: 1.2rem; 
     font-weight: bold;
-    color: #000000; /* Texto en verde */
+    color: #000000; 
     margin-top: 10px;
 }
 

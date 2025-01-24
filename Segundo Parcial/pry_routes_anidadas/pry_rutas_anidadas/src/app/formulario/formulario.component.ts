@@ -39,8 +39,6 @@ export class FormularioComponent {
     if (this.formularioFruta.valid) {
       this.mensajeResultado = 'Formulario enviado con éxito';
       this.resultado = `Fruta: ${nombreFruta}, Cantidad: ${cantidad}, Descripción: ${descripcion}, Categoría: ${categoria}, Código: ${codigoFruta}`;
-    } else {
-      this.mensajeResultado = 'El formulario contiene errores.';
     }
   }
 }

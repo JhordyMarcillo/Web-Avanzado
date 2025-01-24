@@ -1,39 +1,35 @@
-/* General para el título */
+
 h2 {
     text-align: center;
-    color: #b46292; /* Verde para el título */
+    color: #b46292;
     font-family: Arial, sans-serif;
     margin-bottom: 20px;
     font-size: 2rem;
 }
 
-/* Estilo de las tarjetas */
+
 .card {
     width: 100%;
-    max-width: 400px; /* Tamaño máximo para que las tarjetas no se hagan demasiado grandes */
-    margin: 0 auto; /* Centrar las tarjetas */
+    max-width: 400px; 
+    margin: 0 auto; 
 }
 
-/* Sombra para las tarjetas */
 .card.shadow-lg {
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s ease-in-out;
 }
 
-/* Efecto al pasar el ratón por encima de la tarjeta */
 .card:hover {
-    transform: scale(1.05); /* Aumentar el tamaño de la tarjeta al pasar el ratón */
+    transform: scale(1.05); 
 }
 
-/* Imagen dentro de la tarjeta */
 .card-img-top {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-    border-bottom: 2px solid #b46292; /* Borde debajo de la imagen */
+    object-fit: cover; 
+    border-bottom: 2px solid #b46292; 
 }
 
-/* Estilo para el texto dentro de la tarjeta */
 .card-body {
     background-color: #f4f4f4;
     padding: 20px;
