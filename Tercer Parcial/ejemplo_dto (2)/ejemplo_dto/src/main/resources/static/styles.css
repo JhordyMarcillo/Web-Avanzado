@@ -1,0 +1,81 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Encabezados */
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+h2 {
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Contenedores de listas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+ul li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs y botones */
+input {
+    padding: 8px;
+    margin: 5px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de eliminación */
+button.eliminar {
+    background-color: #dc3545;
+}
+
+button.eliminar:hover {
+    background-color: #b02a37;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    input {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

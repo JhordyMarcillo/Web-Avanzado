@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Saludo</title>
+</head>
+<body>
+    <h1>Hola, <span th:text="${UsuarioModelo.nombre}"></span></h1>
+    <p> Tu edad es <span th:text="${UsuarioModelo.edad}"></span>  </p>
+
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

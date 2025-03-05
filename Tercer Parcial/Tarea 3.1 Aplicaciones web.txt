@@ -1,0 +1,12 @@
+Modificaciones:
+CODIGO
+1. Guardar los datos en un archivo JSON en lugar de ArrayList 
+2.Agregar Filtros de Búsqueda y Ordenación
+-Filtrar por nota mínima y máxima.
+-Ordenar alumnos por nota de mayor a menor.
+HTML
+1. Tabla dinámica con Bootstrap
+2. Modifica el script.js para llenar la tabla dinámicamente
+3. Agrega buscador de alumnos por nombre
+4. Generar reportes CSV
+5. Agregar grafico de barras de notas porcentaje, estos son graficos dinamicos

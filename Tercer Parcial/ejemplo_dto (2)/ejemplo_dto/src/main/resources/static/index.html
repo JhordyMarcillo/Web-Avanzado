@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Propietarios, Automóviles y Seguros</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+    <h1>Gestión de Propietarios, Automóviles y Seguros</h1>
+
+    <!-- Sección de Propietarios -->
+    <h2>Propietarios</h2>
+    <ul id="listaPropietarios"></ul>
+    <input type="text" id="nombrePropietario" placeholder="Nombre Completo">
+    <input type="number" id="edadPropietario" placeholder="Edad">
+    <button onclick="crearPropietario()">Crear Propietario</button>
+
+    <!-- Sección de Automóviles -->
+    <h2>Automóviles</h2>
+    <ul id="listaAutomoviles"></ul>
+    <input type="text" id="modeloAutomovil" placeholder="Modelo">
+    <input type="number" id="valorAutomovil" placeholder="Valor">
+    <input type="number" id="accidentesAutomovil" placeholder="Accidentes">
+    <input type="number" id="propietarioIdAutomovil" placeholder="ID del Propietario">
+    <button onclick="crearAutomovil()">Crear Automóvil</button>
+
+    <!-- Sección de Seguros -->
+    <h2>Seguros</h2>
+    <ul id="listaSeguros"></ul>
+    <input type="number" id="automovilIdSeguro" placeholder="ID del Automóvil">
+    <button onclick="generarSeguro()">Generar Seguro</button>
+
+    <script>
+        const API_URL = "http://localhost:8080/api";
+
+        /** OBTENER TODOS LOS PROPIETARIOS **/
+        async function obtenerPropietarios() {
+            const response = await fetch(`${API_URL}/propietarios`);
+            const propietarios = await response.json();
+            const lista = document.getElementById("listaPropietarios");
+            lista.innerHTML = "";
+            propietarios.forEach(p => {
+                const li = document.createElement("li");
+                li.textContent = `ID: ${p.id} - ${p.nombreCompleto} - Edad: ${p.edad}`;
+                lista.appendChild(li);
+            });
+        }
+
+        /** OBTENER TODOS LOS AUTOMÓVILES **/
+        async function obtenerAutomoviles() {
+            const response = await fetch(`${API_URL}/automoviles`);
+            const automoviles = await response.json();
+            const lista = document.getElementById("listaAutomoviles");
+            lista.innerHTML = "";
+            automoviles.forEach(a => {
+                const li = document.createElement("li");
+                li.textContent = `ID: ${a.id} - Modelo: ${a.modelo} - Valor: ${a.valor} - Propietario: ${a.propietarioNombreCompleto}`;
+                lista.appendChild(li);
+            });
+        }
+
+        /** OBTENER TODOS LOS SEGUROS **/
+        async function obtenerSeguros() {
+            const response = await fetch(`${API_URL}/seguros`);
+            const seguros = await response.json();
+            const lista = document.getElementById("listaSeguros");
+            lista.innerHTML = "";
+            seguros.forEach(s => {
+                const li = document.createElement("li");
+                li.textContent = `ID Seguro: ${s.id} - Costo: ${s.costoTotal} - Automóvil ID: ${s.automovilId}`;
+                lista.appendChild(li);
+            });
+        }
+
+        /** CREAR UN PROPIETARIO **/
+        async function crearPropietario() {
+            const nombre = document.getElementById("nombrePropietario").value;
+            const edad = document.getElementById("edadPropietario").value;
+
+            if (!nombre || !edad) {
+                alert("Todos los campos son obligatorios.");
+                return;
+            }
+
+            const response = await fetch(`${API_URL}/propietarios`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nombreCompleto: nombre, edad: parseInt(edad), automovilesIds: [] })
+            });
+
+            if (response.ok) {
+                obtenerPropietarios();
+                alert("Propietario creado correctamente.");
+            } else {
+                alert("Error al crear el propietario.");
+            }
+        }
+
+        /** CREAR UN AUTOMÓVIL **/
+        async function crearAutomovil() {
+            const modelo = document.getElementById("modeloAutomovil").value;
+            const valor = document.getElementById("valorAutomovil").value;
+            const accidentes = document.getElementById("accidentesAutomovil").value;
+            const propietarioId = document.getElementById("propietarioIdAutomovil").value;
+
+            if (!modelo || !valor || !accidentes || !propietarioId) {
+                alert("Todos los campos son obligatorios.");
+                return;
+            }
+
+            const response = await fetch(`${API_URL}/automoviles`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    modelo: modelo,
+                    valor: parseFloat(valor),
+                    accidentes: parseInt(accidentes),
+                    propietarioId: parseInt(propietarioId)
+                })
+            });
+
+            if (response.ok) {
+                obtenerAutomoviles();
+                alert("Automóvil creado correctamente.");
+            } else {
+                alert("Error al crear el automóvil.");
+            }
+        }
+
+        /** GENERAR UN SEGURO PARA UN AUTOMÓVIL **/
+        async function generarSeguro() {
+            const automovilId = document.getElementById("automovilIdSeguro").value;
+
+            if (!automovilId) {
+                alert("Debes ingresar el ID del automóvil.");
+                return;
+            }
+
+            const response = await fetch(`${API_URL}/seguros/generar/${automovilId}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (response.ok) {
+                obtenerSeguros();
+                alert("Seguro generado correctamente.");
+            } else {
+                alert("Error al generar el seguro. Asegúrate de que el automóvil existe y no tiene seguro.");
+            }
+        }
+
+        /** CARGAR DATOS AL INICIAR **/
+        obtenerPropietarios();
+        obtenerAutomoviles();
+        obtenerSeguros();
+    </script>
+
+</body>
+</html>
